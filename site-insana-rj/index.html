@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coletivo Cultural Insana RJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+            colors: {
+              brand: {
+                black: '#09090b', dark: '#121215', card: '#1a1a1e',
+                border: '#27272a', pink: '#e11d48', pinkLight: '#f43f5e', accent: '#fb7185',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { background-color: #09090b; color: #f4f4f5; font-family: 'Plus Jakarta Sans', sans-serif; }
+      .gradient-text { background: linear-gradient(135deg, #f43f5e 0%, #fb7185 50%, #fda4af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .glass-card { background: rgba(26, 26, 30, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+      .glass-card:hover { border-color: rgba(244, 63, 94, 0.4); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-pink selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3" id="brand-logo-container">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-pink to-pink-700 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-brand-pink/20">I</div>
+                    <span class="text-xl font-extrabold tracking-tight text-white uppercase">Insana <span class="text-brand-pink">RJ</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                    <a href="#inicio" class="hover:text-brand-pink transition-colors">Início</a>
+                    <a href="#quem-somos" class="hover:text-brand-pink transition-colors">Quem Somos</a>
+                    <a href="#projetos" class="hover:text-brand-pink transition-colors">Projetos</a>
+                    <a href="#noticias" class="hover:text-brand-pink transition-colors">Notícias</a>
+                    <a href="#blog" class="hover:text-brand-pink transition-colors">Blog</a>
+                    <a href="#redes" class="hover:text-brand-pink transition-colors">Redes</a>
+                    <a href="#transparencia" class="hover:text-brand-pink transition-colors">Transparência</a>
+                    <a href="#contato" class="px-5 py-2.5 bg-brand-pink hover:bg-brand-pinkLight text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-pink/25">Contato</a>
+                </nav>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-zinc-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-brand-border bg-brand-dark px-4 pt-4 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Início</a>
+            <a href="#quem-somos" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Quem Somos</a>
+            <a href="#projetos" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Projetos</a>
+            <a href="#noticias" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Notícias</a>
+            <a href="#blog" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Blog</a>
+            <a href="#redes" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Redes Sociais</a>
+            <a href="#transparencia" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-brand-pink font-medium">Portal da Transparência</a>
+            <a href="#contato" onclick="toggleMobileMenu()" class="block py-2 text-center bg-brand-pink text-white font-bold rounded-xl mt-4">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-36 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-8">
+                <div id="hero-slogan" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold uppercase tracking-wider text-brand-pink border-brand-pink/30">
+                    <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
+                    Cultura & Resistência Carioca
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none uppercase">
+                    Coletivo Cultural <br>
+                    <span class="gradient-text">Insana RJ</span>
+                </h1>
+                <p id="hero-desc" class="text-lg text-zinc-400 max-w-2xl leading-relaxed">
+                    Transformando a cidade através do samba, da percussão, da formação cultural e do fortalecimento das manifestações populares do Rio de Janeiro.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projetos" class="px-8 py-4 bg-brand-pink hover:bg-brand-pinkLight text-white font-bold rounded-xl transition-all shadow-xl shadow-brand-pink/20 flex items-center gap-2">Explorar Projetos &rarr;</a>
+                    <a href="#transparencia" class="px-8 py-4 glass-card hover:bg-zinc-800/80 text-zinc-200 font-bold rounded-xl transition-all">Portal da Transparência</a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="p-6 rounded-2xl glass-card space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-brand-pink flex items-center justify-center font-bold text-2xl">🎉</div>
+                    <h3 class="font-bold text-lg text-white">Bloco da Insana</h3>
+                    <p class="text-xs text-zinc-400">Carnaval e ocupação festiva do espaço público.</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-card space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-brand-pink flex items-center justify-center font-bold text-2xl">🥁</div>
+                    <h3 class="font-bold text-lg text-white">Oficina Insana</h3>
+                    <p class="text-xs text-zinc-400">Formação rítmica e arte-educação gratuita.</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-card space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-brand-pink flex items-center justify-center font-bold text-2xl">🪘</div>
+                    <h3 class="font-bold text-lg text-white">Roda Insana</h3>
+                    <p class="text-xs text-zinc-400">Encontros contínuos de samba de raiz.</p>
+                </div>
+                <div class="p-6 rounded-2xl glass-card space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-brand-pink flex items-center justify-center font-bold text-2xl">✨</div>
+                    <h3 class="font-bold text-lg text-white">Grupo Show</h3>
+                    <p class="text-xs text-zinc-400">Apresentações corporativas e festivais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section id="quem-somos" class="py-24 bg-brand-dark/50 border-y border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brand-pink uppercase">Nossa Identidade</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase">Quem Somos</h2>
+                    <p class="text-zinc-400 leading-relaxed">
+                        O <strong class="text-zinc-200">Coletivo Cultural Insana RJ</strong> é uma organização sem fins lucrativos que promove a difusão da cultura popular, formação artística e transformação social por meio do samba, da percussão e da ocupação democrática da cidade.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Unimos tradição carnavalesca e gestão cultural transparente para formar novos ritmistas, produzir projetos continuados em editais públicos e levar arte viva para diversos territórios do Rio de Janeiro.
+                    </p>
+                </div>
+                <div class="p-8 rounded-3xl glass-card space-y-6">
+                    <h3 class="text-xl font-bold text-white border-b border-brand-border pb-4">Pilares Fundamentais</h3>
+                    <ul class="space-y-4 text-sm text-zinc-300">
+                        <li class="flex items-start gap-3"><span class="text-brand-pink font-bold">✓</span> Democratização Cultural: Acesso gratuito à música e oficinas.</li>
+                        <li class="flex items-start gap-3"><span class="text-brand-pink font-bold">✓</span> Gestão Transparente: Prestação de contas rigorosa e pública.</li>
+                        <li class="flex items-start gap-3"><span class="text-brand-pink font-bold">✓</span> Formação Continuada: Capacitação técnica em percussão e produção.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-xs font-bold tracking-widest text-brand-pink uppercase">Frentes de Atuação</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold uppercase">Nossos Projetos</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-8 rounded-3xl glass-card relative overflow-hidden">
+                <span class="text-xs font-bold text-brand-pink uppercase">Carnaval de Rua</span>
+                <h3 class="text-2xl font-bold text-white mt-1 mb-4">Bloco da Insana</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">A expressão máxima da nossa alegria no Carnaval do Rio. Desfile oficial e cortejo de rua unindo ritmistas e a comunidade.</p>
+                <a href="#contato" class="text-xs font-bold text-brand-pink uppercase">Saber mais &rarr;</a>
+            </div>
+            <div class="p-8 rounded-3xl glass-card relative overflow-hidden">
+                <span class="text-xs font-bold text-brand-pink uppercase">Samba Continuado</span>
+                <h3 class="text-2xl font-bold text-white mt-1 mb-4">Roda Insana</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Encontros periódicos de celebração do samba de enredo, samba de terreiro e salvaguarda cultural em praças do RJ.</p>
+                <a href="#contato" class="text-xs font-bold text-brand-pink uppercase">Saber mais &rarr;</a>
+            </div>
+            <div class="p-8 rounded-3xl glass-card relative overflow-hidden">
+                <span class="text-xs font-bold text-brand-pink uppercase">Formação & Educação</span>
+                <h3 class="text-2xl font-bold text-white mt-1 mb-4">Oficina de Percussão Insana-RJ</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Aulas práticas semanais de surdo, caixa, repique, tamborim e agogô para iniciantes e intermediários.</p>
+                <a href="#contato" class="text-xs font-bold text-brand-pink uppercase">Saber mais &rarr;</a>
+            </div>
+            <div class="p-8 rounded-3xl glass-card relative overflow-hidden">
+                <span class="text-xs font-bold text-brand-pink uppercase">Apresentações Profissionais</span>
+                <h3 class="text-2xl font-bold text-white mt-1 mb-4">Grupo Show</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Elenco de alta performance para shows corporativos, festivais, casamentos e convenções.</p>
+                <a href="#contato" class="text-xs font-bold text-brand-pink uppercase">Saber mais &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal da Transparência -->
+    <section id="transparencia" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="p-8 sm:p-12 rounded-3xl glass-card border border-brand-pink/30 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-brand-border pb-6">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-brand-pink uppercase">Acesso Público</span>
+                    <h2 class="text-3xl font-extrabold uppercase text-white mt-1">Portal da Transparência</h2>
+                </div>
+                <span class="px-4 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 font-bold text-xs border border-emerald-500/20">Conformidade com Editais</span>
+            </div>
+            <p class="text-zinc-400 text-sm max-w-3xl">Relatórios financeiros, relatórios de execução de projetos e documentos de fomentos/editais públicos recebidos pelo coletivo.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-5 rounded-2xl bg-brand-dark/80 border border-brand-border flex items-center justify-between">
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Prestação de Contas - Edital Ações Continuadas</h4>
+                        <span class="text-xs text-zinc-500">Relatório de Execução Física e Financeira • PDF</span>
+                    </div>
+                    <a href="#" class="px-3 py-2 bg-zinc-800 hover:bg-brand-pink text-xs font-bold text-white rounded-lg">Baixar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-24 bg-brand-dark/50 border-t border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brand-pink uppercase">Fale Conosco</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase">Entre em Contato</h2>
+                    <div class="space-y-4 pt-4 text-sm text-zinc-300">
+                        <div class="flex items-center gap-3"><span class="text-brand-pink font-bold">📧</span> <span id="contact-email">contato@insanarj.com.br</span></div>
+                        <div class="flex items-center gap-3"><span class="text-brand-pink font-bold">📍</span> <span id="contact-location">Rio de Janeiro - RJ, Brasil</span></div>
+                        <div class="flex items-center gap-3"><span class="text-brand-pink font-bold">📷</span> <span id="contact-insta">@insana.rj</span></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleFormSubmit(event)" class="p-8 rounded-3xl glass-card space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-zinc-300 mb-2">Nome Completo</label>
+                            <input type="text" required placeholder="Digite seu nome" class="w-full px-4 py-3.5 rounded-xl bg-brand-black border border-brand-border text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-zinc-300 mb-2">E-mail</label>
+                            <input type="email" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-3.5 rounded-xl bg-brand-black border border-brand-border text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-zinc-300 mb-2">Mensagem</label>
+                            <textarea rows="4" required placeholder="Sua mensagem..." class="w-full px-4 py-3.5 rounded-xl bg-brand-black border border-brand-border text-white text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-brand-pink hover:bg-brand-pinkLight text-white font-bold rounded-xl uppercase text-xs">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script de Leitura das Customizações do Decap CMS -->
+    <script>
+      function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        alert('Mensagem enviada com sucesso!');
+        e.target.reset();
+      }
+
+      // Conexão com o painel /admin do Decap CMS
+      fetch('/content/geral.json')
+        .then(res => res.json())
+        .then(data => {
+          if (data.logo) {
+            document.getElementById('brand-logo-container').innerHTML = `<img src="${data.logo}" alt="Coletivo Insana RJ" class="h-10 w-auto">`;
+          }
+          if (data.slogan) {
+            document.getElementById('hero-slogan').innerHTML = `<span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span> ${data.slogan}`;
+          }
+          if (data.hero_description) {
+            document.getElementById('hero-desc').textContent = data.hero_description;
+          }
+          if (data.email) {
+            document.getElementById('contact-email').textContent = data.email;
+          }
+          if (data.localizacao) {
+            document.getElementById('contact-location').textContent = data.localizacao;
+          }
+          if (data.instagram) {
+            document.getElementById('contact-insta').textContent = data.instagram;
+          }
+        })
+        .catch(() => console.log('Usando valores padrão do HTML.'));
+    </script>
+</body>
+</html>

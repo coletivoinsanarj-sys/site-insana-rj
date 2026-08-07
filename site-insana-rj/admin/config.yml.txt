@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  # --- CUSTOMIZAÇÃO DA MARCA & LAYOUT ---
+  - name: "configuracoes"
+    label: "Configurações do Site"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/geral.json"
+        label: "Identidade Visual & Contato"
+        name: "geral"
+        fields:
+          - { label: "Logomarca (Imagem PNG/SVG)", name: "logo", widget: "image", required: false }
+          - { label: "Slogan do Topo (Hero)", name: "slogan", widget: "string", default: "Cultura & Resistência Carioca" }
+          - { label: "Descrição do Hero", name: "hero_description", widget: "text", default: "Transformando a cidade através do samba, da percussão, da formação cultural e do fortalecimento das manifestações populares do Rio de Janeiro." }
+          - { label: "E-mail Oficial de Contato", name: "email", widget: "string", default: "contato@insanarj.com.br" }
+          - { label: "Localização Exibida", name: "localizacao", widget: "string", default: "Rio de Janeiro - RJ, Brasil" }
+          - { label: "Usuário do Instagram", name: "instagram", widget: "string", default: "@insana.rj" }
+
+  # --- NOTÍCIAS ---
+  - name: "noticias"
+    label: "Notícias"
+    folder: "content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título da Notícia", name: "title", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "string", default: "Edital Cultural" }
+      - { label: "Data de Publicação", name: "date", widget: "datetime" }
+      - { label: "Resumo", name: "summary", widget: "text" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # --- AGENDA ---
+  - name: "agenda"
+    label: "Agenda de Eventos"
+    folder: "content/agenda"
+    create: true
+    fields:
+      - { label: "Nome do Evento", name: "title", widget: "string" }
+      - { label: "Tipo", name: "type", widget: "select", options: ["Ensaio Aberto", "Roda Insana", "Workshop", "Apresentação"] }
+      - { label: "Data e Hora", name: "date_info", widget: "string", hint: "Ex: 18 DE AGOSTO • 19:00" }
+      - { label: "Local", name: "location", widget: "string" }
+      - { label: "Valor/Entrada", name: "price", widget: "string", default: "Gratuito" }
+
+  # --- PORTAL DA TRANSPARÊNCIA ---
+  - name: "transparencia"
+    label: "Portal da Transparência"
+    folder: "content/transparencia"
+    create: true
+    fields:
+      - { label: "Título do Documento", name: "title", widget: "string" }
+      - { label: "Descrição Curta", name: "description", widget: "string" }
+      - { label: "Arquivo PDF", name: "file", widget: "file" }
+      - { label: "Ano de Referência", name: "year", widget: "string" }

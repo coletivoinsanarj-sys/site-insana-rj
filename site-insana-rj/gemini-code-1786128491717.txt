@@ -1,0 +1,9 @@
+site-insana-rj/
+│
+├── index.html            <-- O código do site com leitor de customização
+├── admin/
+│   ├── index.html        <-- Interface do painel de login
+│   └── config.yml        <-- Configurações com campos de customização
+├── content/
+│   └── geral.json        <-- Dados iniciais da marca, slogan e contatos
+└── uploads/              <-- Pasta onde ficarão os PDFs e logos enviados
