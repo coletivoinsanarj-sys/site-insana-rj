@@ -4,9 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel de Gestão - Coletivo Insana RJ</title>
+  
+  <!-- Widget de Autenticação do Netlify -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <!-- Aplicação do Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Script para injetar o visual Roxo e Verde Neon na prévia do CMS -->
+  <script>
+    CMS.registerPreviewStyle('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+    
+    // Injeta os estilos customizados e fontes na janela de prévia do painel
+    const style = document.createElement('style');
+    style.innerHTML = `
+      body { background-color: #0F0716 !important; color: #F3E8FF !important; font-family: sans-serif; }
+      .text-insana-neon { color: #39FF14 !important; }
+      .bg-insana-neon { background-color: #39FF14 !important; color: #000000 !important; }
+      .bg-insana-purple { background-color: #7E22CE !important; }
+      .glass-purple { background: rgba(30, 10, 42, 0.9) !important; border: 1px solid rgba(126, 34, 206, 0.4) !important; }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
