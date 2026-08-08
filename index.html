@@ -508,5 +508,25 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
     </script>
+    <script>
+  async function loadCMSContent() {
+    try {
+      // Ajuste o caminho para onde o seu CMS salva os dados JSON
+      const response = await fetch('/content/projetos.json');
+      if (!response.ok) return;
+      
+      const data = await response.json();
+
+      // Exemplo de atualização de imagem dinâmica
+      if (data.blocoInsanaImage1) {
+        document.getElementById('img-bloco-1').src = data.blocoInsanaImage1;
+      }
+    } catch (error) {
+      console.log('Nenhum conteúdo dinâmico carregado, utilizando imagens padrão.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadCMSContent);
+</script>
 </body>
 </html>
