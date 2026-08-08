@@ -191,7 +191,7 @@
         </div>
     </section>
 
-    <!-- PROJETOS (LAYOUT LADO A LADO - 2 COLUNAS) -->
+    <!-- PROJETOS -->
     <section id="projetos" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 border-b border-insana-purple/30">
         <div class="text-center max-w-3xl mx-auto space-y-4">
             <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Frentes de Atuação</span>
@@ -199,7 +199,6 @@
             <p class="text-purple-200/70 text-sm">Conheça os detalhes, fotos, agendas e locais de cada vertente do nosso coletivo.</p>
         </div>
 
-        <!-- Grade Responsiva de 2 Colunas (Lado a Lado) -->
         <div class="grid lg:grid-cols-2 gap-8">
             
             <!-- 1. BLOCO DA INSANA -->
@@ -222,8 +221,8 @@
                     <div>
                         <h4 class="text-[10px] font-black text-insana-neon uppercase mb-2 tracking-wider">Galeria</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Desfile Oficial</div>
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Ala de Passistas</div>
+                            <img id="img-bloco-1" data-cms-src="bloco_img1" src="/uploads/bloco-desfile.jpg" alt="Desfile Oficial" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Desfile Oficial</div>';">
+                            <img id="img-bloco-2" data-cms-src="bloco_img2" src="/uploads/bloco-passistas.jpg" alt="Ala de Passistas" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Ala de Passistas</div>';">
                         </div>
                     </div>
                 </div>
@@ -256,8 +255,8 @@
                     <div>
                         <h4 class="text-[10px] font-black text-insana-neon uppercase mb-2 tracking-wider">Galeria</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Roda Viva</div>
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Convidados</div>
+                            <img id="img-roda-1" data-cms-src="roda_img1" src="/uploads/roda-viva.jpg" alt="Roda Viva" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Roda Viva</div>';">
+                            <img id="img-roda-2" data-cms-src="roda_img2" src="/uploads/roda-convidados.jpg" alt="Convidados" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Convidados</div>';">
                         </div>
                     </div>
                 </div>
@@ -285,8 +284,8 @@
                     <div>
                         <h4 class="text-[10px] font-black text-insana-neon uppercase mb-2 tracking-wider">Galeria dos Ensaios</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Aula de Tamborim</div>
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Naipe de Surdos</div>
+                            <img id="img-oficina-1" data-cms-src="oficina_img1" src="/uploads/aula-tamborim.jpg" alt="Aula de Tamborim" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Aula de Tamborim</div>';">
+                            <img id="img-oficina-2" data-cms-src="oficina_img2" src="/uploads/naipe-surdos.jpg" alt="Naipe de Surdos" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Naipe de Surdos</div>';">
                         </div>
                     </div>
                 </div>
@@ -314,8 +313,8 @@
                     <div>
                         <h4 class="text-[10px] font-black text-insana-neon uppercase mb-2 tracking-wider">Galeria de Apresentações</h4>
                         <div class="grid grid-cols-2 gap-2">
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Show Corporativo</div>
-                            <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center">📸 Palco & Passistas</div>
+                            <img id="img-grupo-1" data-cms-src="grupo_img1" src="/uploads/show-corporativo.jpg" alt="Show Corporativo" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Show Corporativo</div>';">
+                            <img id="img-grupo-2" data-cms-src="grupo_img2" src="/uploads/palco-passistas.jpg" alt="Palco & Passistas" class="w-full aspect-video object-cover rounded-lg border border-insana-purple/50 bg-insana-bg" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'aspect-video bg-insana-bg border border-insana-purple/50 rounded-lg flex items-center justify-center text-[10px] text-purple-300 font-bold uppercase p-1 text-center\'>📸 Palco & Passistas</div>';">
                         </div>
                     </div>
                 </div>
@@ -448,17 +447,14 @@
             <h3 class="text-xl font-black uppercase text-white mt-1">Parceiros do Coletivo</h3>
         </div>
 
-        <!-- Carrossel Infinito -->
         <div class="relative w-full overflow-hidden">
             <div class="animate-carousel flex items-center gap-12">
-                <!-- Logos Parceiros (Grupo 1) -->
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Ceap</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🥁 Casa Carnaval</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🌴 Cervejaria do Mestre</div>
 
-                <!-- Duplicação para Animação Infinita Sem Quebra (Grupo 2) -->
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
                 <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Ceap</div>
@@ -476,8 +472,9 @@
         </div>
     </footer>
 
-    <!-- REDIRECIONAMENTO DE LOGIN NETLIFY IDENTITY -->
+    <!-- SCRIPT DE CARREGAMENTO DINÂMICO E REDIRECIONAMENTO -->
     <script>
+      // 1. Redirecionamento Netlify Identity
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -488,7 +485,7 @@
         });
       }
 
-      // Lógica da Contagem Regressiva do Carnaval 2027
+      // 2. Lógica da Contagem Regressiva do Carnaval 2027
       const paradeDate = new Date('February 8, 2027 10:00:00').getTime();
       function updateCountdown() {
         const now = new Date().getTime();
@@ -507,26 +504,46 @@
       }
       setInterval(updateCountdown, 1000);
       updateCountdown();
-    </script>
-    <script>
-  async function loadCMSContent() {
-    try {
-      // Ajuste o caminho para onde o seu CMS salva os dados JSON
-      const response = await fetch('/content/projetos.json');
-      if (!response.ok) return;
-      
-      const data = await response.json();
 
-      // Exemplo de atualização de imagem dinâmica
-      if (data.blocoInsanaImage1) {
-        document.getElementById('img-bloco-1').src = data.blocoInsanaImage1;
+      // 3. Script para Ler do CMS e Ajustar os Caminhos das Imagens
+      function formatImagePath(path) {
+        if (!path) return '';
+        // Garante que o caminho comece com / caso venha sem a barra inicial
+        if (!path.startsWith('/') && !path.startsWith('http')) {
+          return '/' + path;
+        }
+        return path;
       }
-    } catch (error) {
-      console.log('Nenhum conteúdo dinâmico carregado, utilizando imagens padrão.');
-    }
-  }
 
-  document.addEventListener('DOMContentLoaded', loadCMSContent);
-</script>
+      async function loadCMSData() {
+        try {
+          // Tenta buscar as informações do JSON exportado pelo CMS
+          const res = await fetch('/content/site.json');
+          if (!res.ok) return;
+          const data = await res.json();
+
+          // Atualiza as tags <img> com base na chave data-cms-src
+          document.querySelectorAll('img[data-cms-src]').forEach(img => {
+            const key = img.getAttribute('data-cms-src');
+            if (data && data[key]) {
+              img.src = formatImagePath(data[key]);
+            }
+          });
+        } catch (e) {
+          console.log('Sem dados dinâmicos do CMS. Mantendo caminhos padrão do diretório /uploads.');
+        }
+      }
+
+      // Garante a correção de imagens sem a barra inicial no src estático
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('img').forEach(img => {
+          if (img.src && !img.src.startsWith('http')) {
+            const relativePath = img.getAttribute('src');
+            img.src = formatImagePath(relativePath);
+          }
+        });
+        loadCMSData();
+      });
+    </script>
 </body>
 </html>
