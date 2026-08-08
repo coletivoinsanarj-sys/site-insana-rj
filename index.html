@@ -441,13 +441,31 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 border-t border-insana-purple/30 text-center text-purple-300/60 text-xs bg-insana-bg">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p>© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados.</p>
-            <p>Samba, Percussão e Ocupação Cultural no Rio de Janeiro.</p>
-        </div>
-    </footer>
+    # 9. CARROSSEL DE PARCEIROS
+  - name: "parceiros"
+    label: "9. Parceiros do Coletivo"
+    files:
+      - file: "content/parceiros.json"
+        label: "Lista de Parceiros"
+        name: "parceiros"
+        fields:
+          - label: "Logos dos Parceiros"
+            name: "lista_parceiros"
+            widget: "list"
+            fields:
+              - { label: "Nome do Parceiro", name: "nome", widget: "string" }
+              - { label: "Logo do Parceiro", name: "logo", widget: "image" }
+
+  # 10. RODAPÉ (FOOTER)
+  - name: "rodape"
+    label: "10. Rodapé do Site"
+    files:
+      - file: "content/rodape.json"
+        label: "Textos de Direitos & Informações"
+        name: "rodape"
+        fields:
+          - { label: "Texto de Direitos Autorais", name: "copyright", widget: "string", default: "© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados." }
+          - { label: "Subtítulo do Rodapé", name: "subtitulo", widget: "string", default: "Samba, Percussão e Ocupação Cultural no Rio de Janeiro." }
 
     <!-- REDIRECIONAMENTO DE LOGIN NETLIFY IDENTITY -->
     <script>
