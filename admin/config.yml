@@ -1,60 +1,206 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # ou master, conforme o seu repositório
 
 media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  # --- CUSTOMIZAÇÃO DA MARCA & LAYOUT ---
-  - name: "configuracoes"
-    label: "Configurações do Site"
-    delete: false
-    editor:
-      preview: false
+  # 1. PÁGINA INICIAL & CABEÇALHO
+  - name: "geral"
+    label: "1. Página Inicial & Marca"
     files:
       - file: "content/geral.json"
-        label: "Identidade Visual & Contato"
+        label: "Identidade Visual & Hero Section"
         name: "geral"
         fields:
-          - { label: "Logomarca (Imagem PNG/SVG)", name: "logo", widget: "image", required: false }
-          - { label: "Slogan do Topo (Hero)", name: "slogan", widget: "string", default: "Cultura & Resistência Carioca" }
-          - { label: "Descrição do Hero", name: "hero_description", widget: "text", default: "Transformando a cidade através do samba, da percussão, da formação cultural e do fortalecimento das manifestações populares do Rio de Janeiro." }
-          - { label: "E-mail Oficial de Contato", name: "email", widget: "string", default: "contato@insanarj.com.br" }
-          - { label: "Localização Exibida", name: "localizacao", widget: "string", default: "Rio de Janeiro - RJ, Brasil" }
-          - { label: "Usuário do Instagram", name: "instagram", widget: "string", default: "@insana.rj" }
+          - { label: "Logotipo do Coletivo", name: "logo", widget: "image", required: false }
+          - { label: "Slogan do Banner Principal", name: "slogan", widget: "string", default: "Cultura, Samba & Alegria Carioca" }
+          - { label: "Descrição Principal do Hero", name: "hero_description", widget: "text" }
+          - { label: "Data do Próximo Desfile (Contagem Regressiva)", name: "data_desfile", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm" }
+          - { label: "E-mail de Contato", name: "email", widget: "string" }
+          - { label: "Localização de Atuação", name: "localizacao", widget: "string" }
+          - { label: "Instagram Oficial", name: "instagram", widget: "string", default: "@blocodainsanarj" }
 
-  # --- NOTÍCIAS ---
-  - name: "noticias"
-    label: "Notícias"
-    folder: "content/noticias"
+  # 2. SEÇÃO QUEM SOMOS
+  - name: "quem_somos"
+    label: "2. Seção Quem Somos"
+    files:
+      - file: "content/quem_somos.json"
+        label: "Histórico & Pilares"
+        name: "quem_somos"
+        fields:
+          - { label: "Título da Seção", name: "titulo", widget: "string", default: "Quem Somos" }
+          - { label: "Texto Institucional 1", name: "texto_1", widget: "text" }
+          - { label: "Texto Institucional 2", name: "texto_2", widget: "text" }
+          - label: "Pilares Fundamentais", name: "pilares", widget: "list", field: { label: "Pilar / Princípio", name: "pilar", widget: "string" }
+
+  # 3. MÓDULOS DETALHADOS DOS PROJETOS (BLOCO, RODA, OFICINA E SHOW)
+  - name: "projetos_detalhes"
+    label: "3. Módulos dos Projetos"
+    files:
+      - file: "content/projeto_bloco.json"
+        label: "Projeto: Bloco da Insana"
+        name: "projeto_bloco"
+        fields:
+          - { label: "Próximo Desfile", name: "data_desfile", widget: "string", default: "08 de Fevereiro de 2027" }
+          - { label: "Descrição do Bloco", name: "descricao", widget: "text" }
+          - { label: "Descrição do Percurso", name: "percurso_desc", widget: "string" }
+          - { label: "Link do Google Maps (Percurso)", name: "mapa_url", widget: "string" }
+
+      - file: "content/projeto_roda.json"
+        label: "Projeto: Roda Insana"
+        name: "projeto_roda"
+        fields:
+          - { label: "Data do Próximo Evento", name: "data_evento", widget: "string", default: "12 de Setembro de 2026 • 16:00" }
+          - { label: "Descrição da Roda", name: "descricao", widget: "text" }
+          - { label: "Nome do Local", name: "local_nome", widget: "string", default: "Praça da Harmonia - Saúde / Centro, Rio de Janeiro - RJ" }
+          - { label: "Link do Google Maps (Local)", name: "mapa_url", widget: "string" }
+
+      - file: "content/projeto_oficina.json"
+        label: "Projeto: Oficina de Percussão"
+        name: "projeto_oficina"
+        fields:
+          - { label: "Descrição da Oficina", name: "descricao", widget: "text" }
+          - label: "Pólos de Aulas"
+            name: "polos"
+            widget: "list"
+            fields:
+              - { label: "Nome do Pólo", name: "nome_polo", widget: "string", placeholder: "Ex: Pólo Centro" }
+              - { label: "Local / Referência", name: "local", widget: "string", placeholder: "Ex: Casa Carnaval" }
+              - { label: "Horários das Aulas", name: "horario", widget: "string", placeholder: "Ex: Terças e quintas às 19h" }
+              - { label: "Link do Google Maps do Pólo", name: "mapa_url", widget: "string" }
+
+      - file: "content/projeto_show.json"
+        label: "Projeto: Grupo Show"
+        name: "projeto_show"
+        fields:
+          - { label: "Descrição do Grupo Show", name: "descricao", widget: "text" }
+
+  # 4. GALERIAS DE FOTOS DOS PROJETOS
+  - name: "projetos_galeria"
+    label: "4. Galerias de Fotos"
+    files:
+      - file: "content/galeria_bloco.json"
+        label: "Galeria - Bloco da Insana"
+        name: "galeria_bloco"
+        fields:
+          - label: "Fotos do Bloco"
+            name: "fotos"
+            widget: "list"
+            fields:
+              - { label: "Título da Foto", name: "titulo", widget: "string" }
+              - { label: "Imagem", name: "foto", widget: "image" }
+
+      - file: "content/galeria_roda.json"
+        label: "Galeria - Roda Insana"
+        name: "galeria_roda"
+        fields:
+          - label: "Fotos da Roda"
+            name: "fotos"
+            widget: "list"
+            fields:
+              - { label: "Título da Foto", name: "titulo", widget: "string" }
+              - { label: "Imagem", name: "foto", widget: "image" }
+
+      - file: "content/galeria_oficina.json"
+        label: "Galeria - Oficina de Percussão"
+        name: "galeria_oficina"
+        fields:
+          - label: "Fotos da Oficina"
+            name: "fotos"
+            widget: "list"
+            fields:
+              - { label: "Título da Foto", name: "titulo", widget: "string" }
+              - { label: "Imagem", name: "foto", widget: "image" }
+
+      - file: "content/galeria_show.json"
+        label: "Galeria - Grupo Show"
+        name: "galeria_show"
+        fields:
+          - label: "Fotos do Grupo Show"
+            name: "fotos"
+            widget: "list"
+            fields:
+              - { label: "Título da Foto", name: "titulo", widget: "string" }
+              - { label: "Imagem", name: "foto", widget: "image" }
+
+  # 5. AGENDA DE ATIVIDADES PROGRAMADAS
+  - name: "agenda"
+    label: "5. Agenda de Atividades"
+    folder: "content/agenda"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título do Evento/Ensaio", name: "title", widget: "string" }
+      - { label: "Tipo de Evento", name: "tipo", widget: "select", options: ["Ensaio Aberto", "Roda de Samba", "Workshop", "Apresentação Show", "Desfile"] }
+      - { label: "Data e Horário", name: "data_horario", widget: "string", placeholder: "Ex: TODAS AS TERÇAS • 19:30" }
+      - { label: "Local", name: "local", widget: "string", placeholder: "Ex: Pólo Centro - Casa Carnaval" }
+      - { label: "Valor / Entrada", name: "valor", widget: "string", default: "Gratuito" }
+      - { label: "Descrição Curta", name: "description", widget: "text" }
+
+  # 6. NOTÍCIAS & BLOG CULTURAL
+  - name: "blog"
+    label: "6. Notícias & Blog"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Título da Notícia", name: "title", widget: "string" }
-      - { label: "Categoria", name: "category", widget: "string", default: "Edital Cultural" }
+      - { label: "Título do Artigo", name: "title", widget: "string" }
       - { label: "Data de Publicação", name: "date", widget: "datetime" }
-      - { label: "Resumo", name: "summary", widget: "text" }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - { label: "Autor", name: "author", widget: "string", default: "Equipe Insana RJ" }
+      - { label: "Resumo em Destaque", name: "summary", widget: "text" }
+      - { label: "Imagem de Capa", name: "image", widget: "image", required: false }
+      - { label: "Conteúdo Completo (Markdown)", name: "body", widget: "markdown" }
 
-  # --- AGENDA ---
-  - name: "agenda"
-    label: "Agenda de Eventos"
-    folder: "content/agenda"
-    create: true
-    fields:
-      - { label: "Nome do Evento", name: "title", widget: "string" }
-      - { label: "Tipo", name: "type", widget: "select", options: ["Ensaio Aberto", "Roda Insana", "Workshop", "Apresentação"] }
-      - { label: "Data e Hora", name: "date_info", widget: "string", hint: "Ex: 18 DE AGOSTO • 19:00" }
-      - { label: "Local", name: "location", widget: "string" }
-      - { label: "Valor/Entrada", name: "price", widget: "string", default: "Gratuito" }
+  # 7. DESTAQUE REDES SOCIAIS (INSTAGRAM)
+  - name: "redes_sociais"
+    label: "7. Redes Sociais & Destaque"
+    files:
+      - file: "content/instagram_destaque.json"
+        label: "Card Destaque Instagram"
+        name: "instagram_destaque"
+        fields:
+          - { label: "Legenda / Texto da Postagem", name: "texto", widget: "text" }
+          - { label: "Hashtags em Destaque", name: "hashtags", widget: "string", default: "#BlocoDaInsana #OficinaInsana #SambaRJ" }
+          - { label: "Link do Post no Instagram", name: "post_url", widget: "string", default: "https://instagram.com/blocodainsanarj" }
 
-  # --- PORTAL DA TRANSPARÊNCIA ---
+  # 8. PORTAL DA TRANSPARÊNCIA
   - name: "transparencia"
-    label: "Portal da Transparência"
+    label: "8. Portal da Transparência"
     folder: "content/transparencia"
     create: true
+    slug: "{{slug}}"
     fields:
+      - { label: "Nome do Documento / Edital", name: "title", widget: "string" }
+      - { label: "Categoria/Ano", name: "categoria", widget: "string", placeholder: "Ex: Prestação de Contas 2026" }
+      - { label: "Arquivo PDF", name: "pdf_file", widget: "file" }
+
+  # 9. CARROSSEL DE PARCEIROS
+  - name: "parceiros"
+    label: "9. Parceiros do Coletivo"
+    files:
+      - file: "content/parceiros.json"
+        label: "Lista de Parceiros"
+        name: "parceiros"
+        fields:
+          - label: "Logos dos Parceiros"
+            name: "lista_parceiros"
+            widget: "list"
+            fields:
+              - { label: "Nome do Parceiro", name: "nome", widget: "string" }
+              - { label: "Logo do Parceiro", name: "logo", widget: "image" }
+
+  # 10. RODAPÉ (FOOTER)
+  - name: "rodape"
+    label: "10. Rodapé do Site"
+    files:
+      - file: "content/rodape.json"
+        label: "Textos de Direitos & Informações"
+        name: "rodape"
+        fields:
+          - { label: "Texto de Direitos Autorais", name: "copyright", widget: "string", default: "© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados." }
+          - { label: "Subtítulo do Rodapé", name: "subtitulo", widget: "string", default: "Samba, Percussão e Ocupação Cultural no Rio de Janeiro." }
       - { label: "Título do Documento", name: "title", widget: "string" }
       - { label: "Descrição Curta", name: "description", widget: "string" }
       - { label: "Arquivo PDF", name: "file", widget: "file" }
