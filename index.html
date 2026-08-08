@@ -545,5 +545,23 @@
         loadCMSData();
       });
     </script>
+    <script>
+  async function carregarImagensCMS() {
+    try {
+      // Busca o arquivo JSON onde o CMS salvou os caminhos das imagens
+      const resposta = await fetch('/content/home.json');
+      if (!resposta.ok) return;
+      const dados = await resposta.json();
+
+      // Aplica os caminhos salvos nas imagens
+      if (dados.bloco_img1) document.getElementById('img-bloco-1').src = dados.bloco_img1;
+      if (dados.bloco_img2) document.getElementById('img-bloco-2').src = dados.bloco_img2;
+    } catch (erro) {
+      console.error('Erro ao carregar dados do CMS:', erro);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', carregarImagensCMS);
+</script>
 </body>
 </html>
