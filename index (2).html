@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coletivo Cultural Insana RJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+            colors: {
+              insana: {
+                bg: '#0F0716',        /* Fundo roxo ultra escuro */
+                card: '#1E0A2A',      /* Fundo dos cartões */
+                border: '#3B1252',    /* Borda discreta */
+                purple: '#7E22CE',    /* Roxo principal */
+                purpleLight: '#A855F7',/* Roxo claro */
+                neon: '#39FF14',      /* Verde Neon Oficial */
+                neonHover: '#22C55E', /* Verde Hover */
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { background-color: #0F0716; color: #F3E8FF; font-family: 'Plus Jakarta Sans', sans-serif; }
+      
+      .neon-text-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+      .neon-text-purple { text-shadow: 0 0 10px rgba(168, 85, 247, 0.6); }
+      .neon-border { border-color: #39FF14; box-shadow: 0 0 12px rgba(57, 255, 20, 0.25); }
+      
+      .glass-purple {
+        background: rgba(30, 10, 42, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(126, 34, 206, 0.3);
+      }
+      .glass-purple:hover {
+        border-color: #39FF14;
+        box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+      }
+
+      /* Estilo da Animação do Carrossel Continuo */
+      @keyframes carousel {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-carousel {
+        display: flex;
+        width: 200%;
+        animation: carousel 20s linear infinite;
+      }
+      .animate-carousel:hover {
+        animation-play-state: paused;
+      }
+    </style>
+</head>
+<body class="antialiased selection:bg-insana-neon selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-purple border-b border-insana-purple/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3" id="brand-logo-container">
+                    <div class="w-10 h-10 rounded-xl bg-insana-purple border border-insana-neon flex items-center justify-center font-black text-xl text-insana-neon shadow-lg">I</div>
+                    <span class="text-xl font-black tracking-tight text-white uppercase">Insana <span class="text-insana-neon neon-text-green">RJ</span></span>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider">
+                    <a href="#inicio" class="hover:text-insana-neon transition-colors">Início</a>
+                    <a href="#quem-somos" class="hover:text-insana-neon transition-colors">Quem Somos</a>
+                    <a href="#projetos" class="hover:text-insana-neon transition-colors">Projetos</a>
+                    <a href="#agenda" class="hover:text-insana-neon transition-colors">Agenda</a>
+                    <a href="#noticias" class="hover:text-insana-neon transition-colors">Notícias & Blog</a>
+                    <a href="#redes" class="hover:text-insana-neon transition-colors">Redes</a>
+                    <a href="#transparencia" class="hover:text-insana-neon transition-colors">Transparência</a>
+                    <a href="#contato" class="px-4 py-2 bg-insana-neon hover:bg-insana-neonHover text-black font-extrabold rounded-xl transition-all shadow-lg shadow-insana-neon/20">Contato</a>
+                </nav>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-insana-neon">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-insana-border bg-insana-bg px-4 pt-4 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Início</a>
+            <a href="#quem-somos" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Quem Somos</a>
+            <a href="#projetos" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Projetos</a>
+            <a href="#agenda" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Agenda</a>
+            <a href="#noticias" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Notícias & Blog</a>
+            <a href="#redes" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Redes Sociais</a>
+            <a href="#transparencia" onclick="toggleMobileMenu()" class="block py-2 text-zinc-300 hover:text-insana-neon font-medium">Portal da Transparência</a>
+            <a href="#contato" onclick="toggleMobileMenu()" class="block py-2 text-center bg-insana-neon text-black font-extrabold rounded-xl mt-4">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-16 md:pt-44 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div id="hero-slogan" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-purple text-xs font-black uppercase tracking-widest text-insana-neon border-insana-neon/40">
+                    <span class="w-2.5 h-2.5 rounded-full bg-insana-neon animate-pulse"></span>
+                    Cultura, Samba & Alegria Carioca
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none uppercase">
+                    Coletivo Cultural <br>
+                    <span class="text-insana-neon neon-text-green">Insana RJ</span>
+                </h1>
+                <p id="hero-desc" class="text-lg text-purple-200/80 max-w-2xl leading-relaxed">
+                    Unindo o Bloco da Insana, a Oficina de Percussão, a Roda Insana e o Grupo Show na celebração viva da cultura popular e do carnaval de rua no Rio de Janeiro.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projetos" class="px-8 py-4 bg-insana-neon hover:bg-insana-neonHover text-black font-black uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-insana-neon/20 flex items-center gap-2">Explorar Projetos &rarr;</a>
+                    <a href="#transparencia" class="px-8 py-4 glass-purple hover:bg-insana-card text-white font-bold rounded-xl transition-all border border-insana-purple">Portal da Transparência</a>
+                </div>
+            </div>
+
+            <!-- Contagem Regressiva para o Carnaval 2027 -->
+            <div class="lg:col-span-5">
+                <div class="p-8 rounded-3xl glass-purple border-2 border-insana-neon text-center space-y-6 shadow-2xl shadow-insana-neon/10 relative overflow-hidden">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-insana-neon/10 rounded-full blur-xl"></div>
+                    <div>
+                        <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Contagem Regressiva</span>
+                        <h2 class="text-xl font-black uppercase text-white mt-1">Desfile Oficial do Bloco</h2>
+                        <p class="text-xs text-purple-300 font-bold uppercase tracking-wider mt-1">🗓️ 08 de Fevereiro de 2027</p>
+                    </div>
+
+                    <!-- Contador Digital -->
+                    <div class="grid grid-cols-4 gap-2 pt-2">
+                        <div class="p-3 bg-insana-bg border border-insana-purple/60 rounded-xl">
+                            <span id="countdown-days" class="block text-2xl sm:text-3xl font-black text-insana-neon neon-text-green">00</span>
+                            <span class="text-[10px] uppercase font-bold text-purple-200/60">Dias</span>
+                        </div>
+                        <div class="p-3 bg-insana-bg border border-insana-purple/60 rounded-xl">
+                            <span id="countdown-hours" class="block text-2xl sm:text-3xl font-black text-white">00</span>
+                            <span class="text-[10px] uppercase font-bold text-purple-200/60">Horas</span>
+                        </div>
+                        <div class="p-3 bg-insana-bg border border-insana-purple/60 rounded-xl">
+                            <span id="countdown-minutes" class="block text-2xl sm:text-3xl font-black text-white">00</span>
+                            <span class="text-[10px] uppercase font-bold text-purple-200/60">Min</span>
+                        </div>
+                        <div class="p-3 bg-insana-bg border border-insana-purple/60 rounded-xl">
+                            <span id="countdown-seconds" class="block text-2xl sm:text-3xl font-black text-insana-neon">00</span>
+                            <span class="text-[10px] uppercase font-bold text-purple-200/60">Seg</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-purple-200/70 italic">Prepare sua fantasia! O couro vai comer no Carnaval do Rio!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section id="quem-somos" class="py-20 bg-insana-card/40 border-y border-insana-purple/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Nossa Identidade</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">Quem Somos</h2>
+                    <p class="text-purple-200/80 leading-relaxed">
+                        O <strong class="text-white">Coletivo Cultural Insana RJ</strong> é uma organização sem fins lucrativos que promove a difusão da cultura popular, formação artística e transformação social por meio do samba, da percussão e da ocupação democrática da cidade.
+                    </p>
+                    <p class="text-purple-200/80 leading-relaxed">
+                        Unimos tradição carnavalesca e gestão cultural transparente para formar novos ritmistas, produzir projetos continuados em editais públicos e levar arte viva para diversos territórios do Rio de Janeiro.
+                    </p>
+                </div>
+                <div class="p-8 rounded-3xl glass-purple space-y-6">
+                    <h3 class="text-xl font-bold text-white border-b border-insana-purple/50 pb-4">Pilares Fundamentais</h3>
+                    <ul class="space-y-4 text-sm text-purple-200/90">
+                        <li class="flex items-start gap-3"><span class="text-insana-neon font-bold">✓</span> Democratização Cultural: Acesso gratuito à música e oficinas.</li>
+                        <li class="flex items-start gap-3"><span class="text-insana-neon font-bold">✓</span> Gestão Transparente: Prestação de contas rigorosa e pública.</li>
+                        <li class="flex items-start gap-3"><span class="text-insana-neon font-bold">✓</span> Formação Continuada: Capacitação técnica em percussão e produção.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos (Subdivididos) -->
+    <section id="projetos" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Frentes de Atuação</span>
+            <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">Nossos Projetos</h2>
+            <p class="text-purple-200/70 text-sm">Conheça os detalhes, fotos, agendas e locais de cada vertente do nosso coletivo.</p>
+        </div>
+
+        <!-- 1. BLOCO DA INSANA -->
+        <div id="bloco-insana" class="p-8 sm:p-10 rounded-3xl glass-purple border border-insana-purple/60 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-insana-purple/40 pb-6">
+                <div>
+                    <span class="text-xs font-black text-insana-neon uppercase tracking-wider">Carnaval de Rua</span>
+                    <h3 class="text-3xl font-black text-white mt-1">Bloco da Insana</h3>
+                </div>
+                <div class="px-4 py-2 rounded-xl bg-insana-neon/10 border border-insana-neon/40 text-insana-neon text-xs font-black uppercase">
+                    🗓️ Próximo Desfile: 08 de Fevereiro de 2027
+                </div>
+            </div>
+
+            <p class="text-purple-200/80 text-sm leading-relaxed">
+                O Bloco da Insana leva para as ruas do Rio toda a energia da nossa bateria, marchinhas, sambas-enredo e ritmos brasileiros, promovendo uma festa inclusiva, segura e democrática.
+            </p>
+
+            <!-- Galeria de Fotos Bloco -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-4 tracking-wider">Galeria do Bloco</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Desfile Oficial</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Concentração</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Ala de Passistas</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Cortejo de Rua</div>
+                </div>
+            </div>
+
+            <!-- Mapa do Percurso Bloco -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-2 tracking-wider">Percurso do Desfile Oficial</h4>
+                <p class="text-xs text-purple-200/70 mb-4">Concentração na Praça principal com dispersão no circuito cultural.</p>
+                <div class="w-full h-64 rounded-2xl bg-insana-bg border border-insana-purple/60 overflow-hidden relative">
+                    <iframe class="w-full h-full grayscale contrast-125 opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2018889410915!2d-43.18048268503433!3d-22.90597398501258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5f4b4f526b%3A0xb3d2023a9e224e78!2sPra%C3%A7a%20XV%20de%20Novembro%20-%20Centro%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. RODA INSANA -->
+        <div id="roda-insana" class="p-8 sm:p-10 rounded-3xl glass-purple border border-insana-purple/60 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-insana-purple/40 pb-6">
+                <div>
+                    <span class="text-xs font-black text-insana-neon uppercase tracking-wider">Samba Continuado</span>
+                    <h3 class="text-3xl font-black text-white mt-1">Roda Insana</h3>
+                </div>
+                <div class="px-4 py-2 rounded-xl bg-insana-purple/40 border border-insana-purpleLight text-white text-xs font-black uppercase">
+                    🗓️ Próximo Evento: 12 de Setembro de 2026 • 16:00
+                </div>
+            </div>
+
+            <p class="text-purple-200/80 text-sm leading-relaxed">
+                Encontros periódicos de valorização do samba de raiz, partido alto e sambas-enredo históricos, unindo músicos convidados e a comunidade em praças públicas.
+            </p>
+
+            <!-- Galeria de Fotos Roda -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-4 tracking-wider">Galeria da Roda</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Roda no Parque</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Músicos Convidados</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Roda de Samba Viva</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Público & Feira</div>
+                </div>
+            </div>
+
+            <!-- Mapa do Local Roda -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-2 tracking-wider">Mapa do Local da Próxima Roda</h4>
+                <p class="text-xs text-purple-200/70 mb-4">📍 Praça da Harmonia - Saúde / Centro, Rio de Janeiro - RJ</p>
+                <div class="w-full h-64 rounded-2xl bg-insana-bg border border-insana-purple/60 overflow-hidden relative">
+                    <iframe class="w-full h-full grayscale contrast-125 opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.526219808386!2d-43.18952468503456!3d-22.89397688501861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f8c050b4d45%3A0xd6803ef582eb7bc3!2sPra%C3%A7a%20da%20Harmonia!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. OFICINA DE PERCUSSÃO -->
+        <div id="oficina-percussao" class="p-8 sm:p-10 rounded-3xl glass-purple border border-insana-purple/60 space-y-8">
+            <div class="border-b border-insana-purple/40 pb-6">
+                <span class="text-xs font-black text-insana-neon uppercase tracking-wider">Formação & Educação</span>
+                <h3 class="text-3xl font-black text-white mt-1">Oficina de Percussão Insana-RJ</h3>
+                <p class="text-purple-200/80 text-sm mt-2">Capacitação prática em instrumentos de bateria de escola de samba para iniciantes e veteranos.</p>
+            </div>
+
+            <!-- Galeria de Fotos Oficina -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-4 tracking-wider">Galeria dos Ensaios</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Aula de Tamborim</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Naipe de Surdos</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Caixa & Repique</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Ensaio Geral</div>
+                </div>
+            </div>
+
+            <!-- Mapas dos Pólos da Oficina -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-4 tracking-wider">Nossos Pólos de Realização</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <!-- Pólo 1: Centro -->
+                    <div class="p-4 bg-insana-bg rounded-2xl border border-insana-purple/60 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black text-insana-neon uppercase">Pólo Centro</span>
+                            <span class="text-[10px] bg-insana-purple/50 text-white px-2 py-0.5 rounded">Casa Carnaval</span>
+                        </div>
+                        <p class="text-xs text-purple-200/70">Aulas terças e quintas às 19h.</p>
+                        <div class="h-40 rounded-xl overflow-hidden border border-insana-purple/40">
+                            <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.250000000000!2d-43.18100000000000!3d-22.90400000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzE0LjQiUyA0M8KwMTB0NTEuNiJX!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Pólo 2: Zona Norte -->
+                    <div class="p-4 bg-insana-bg rounded-2xl border border-insana-purple/60 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black text-insana-neon uppercase">Pólo Zona Norte</span>
+                            <span class="text-[10px] bg-insana-purple/50 text-white px-2 py-0.5 rounded">Quinta da Boa Vista</span>
+                        </div>
+                        <p class="text-xs text-purple-200/70">Aulas aos sábados às 10h.</p>
+                        <div class="h-40 rounded-xl overflow-hidden border border-insana-purple/40">
+                            <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.0531238321287!2d-43.22416808503417!3d-22.911475785009188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e33527b16d1%3A0xb35a7251cd653b67!2sQuinta%20da%20Boa%20Vista!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Pólo 3: Niterói -->
+                    <div class="p-4 bg-insana-bg rounded-2xl border border-insana-purple/60 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black text-insana-neon uppercase">Pólo Niterói</span>
+                            <span class="text-[10px] bg-insana-purple/50 text-white px-2 py-0.5 rounded">São Francisco</span>
+                        </div>
+                        <p class="text-xs text-purple-200/70">Aulas aos domingos às 15h.</p>
+                        <div class="h-40 rounded-xl overflow-hidden border border-insana-purple/40">
+                            <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.801201889028!2d-43.09012368503399!3d-22.9208000850035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983f4f5f5f5f5%3A0x0!2zU8OjbyBGcmFuY2lzY28sIE5pdGVyw7NpIC0gUko!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. GRUPO SHOW -->
+        <div id="grupo-show" class="p-8 sm:p-10 rounded-3xl glass-purple border border-insana-purple/60 space-y-8">
+            <div class="border-b border-insana-purple/40 pb-6">
+                <span class="text-xs font-black text-insana-neon uppercase tracking-wider">Apresentações Profissionais</span>
+                <h3 class="text-3xl font-black text-white mt-1">Grupo Show Insana RJ</h3>
+                <p class="text-purple-200/80 text-sm mt-2">Elenco de alta performance para shows corporativos, convenções, casamentos e grandes festivais.</p>
+            </div>
+
+            <!-- Galeria do Grupo Show -->
+            <div>
+                <h4 class="text-xs font-black text-insana-neon uppercase mb-4 tracking-wider">Galeria de Apresentações</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Show Corporativo</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Festival Cultural</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Bateria & Passistas</div>
+                    <div class="aspect-video bg-insana-bg border border-insana-purple/50 rounded-xl flex items-center justify-center text-xs text-purple-300 font-bold uppercase p-2 text-center">📸 Performance no Palco</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Agenda de Atividades Programadas -->
+    <section id="agenda" class="py-20 bg-insana-card/40 border-y border-insana-purple/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Programação Oficial</span>
+                    <h2 class="text-3xl font-black uppercase text-white mt-1">Agenda de Atividades</h2>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Atividade 1 -->
+                <div class="p-6 rounded-2xl glass-purple space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-lg bg-insana-neon/10 text-insana-neon font-bold text-xs uppercase border border-insana-neon/30">Ensaio Aberto</span>
+                        <span class="text-xs text-purple-300 font-bold">TODAS AS TERÇAS • 19:30</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Ensaio Geral da Bateria Insana</h3>
+                    <p class="text-xs text-purple-200/70">Treino de ritmistas, afinação de instrumentos e repertório para o próximo desfile.</p>
+                    <div class="pt-2 border-t border-insana-purple/40 flex justify-between text-xs text-purple-300">
+                        <span>📍 Pólo Centro - Casa Carnaval</span>
+                        <span class="text-insana-neon font-bold">Gratuito</span>
+                    </div>
+                </div>
+
+                <!-- Atividade 2 -->
+                <div class="p-6 rounded-2xl glass-purple space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-lg bg-insana-purple/40 text-white font-bold text-xs uppercase border border-insana-purpleLight">Roda de Samba</span>
+                        <span class="text-xs text-purple-300 font-bold">12 DE SETEMBRO • 16:00</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Roda Insana na Praça da Harmonia</h3>
+                    <p class="text-xs text-purple-200/70">Edição especial celebrando os grandes sambas-enredo da história do Rio de Janeiro.</p>
+                    <div class="pt-2 border-t border-insana-purple/40 flex justify-between text-xs text-purple-300">
+                        <span>📍 Praça da Harmonia - Saúde</span>
+                        <span class="text-insana-neon font-bold">Aberto ao Público</span>
+                    </div>
+                </div>
+
+                <!-- Atividade 3 -->
+                <div class="p-6 rounded-2xl glass-purple space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-lg bg-insana-purple/40 text-white font-bold text-xs uppercase border border-insana-purpleLight">Workshop</span>
+                        <span class="text-xs text-purple-300 font-bold">26 DE SETEMBRO • 14:00</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Aulão de Agogô e Tamborim</h3>
+                    <p class="text-xs text-purple-200/70">Workshop de nivelamento para novos alunos da Oficina de Percussão.</p>
+                    <div class="pt-2 border-t border-insana-purple/40 flex justify-between text-xs text-purple-300">
+                        <span>📍 Quinta da Boa Vista</span>
+                        <span class="text-insana-neon font-bold">Inscrições Abertas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notícias, Blog & Instagram -->
+    <section id="noticias" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <div class="grid lg:grid-cols-12 gap-12">
+            
+            <!-- Janela Última Postagem do Blog -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="flex justify-between items-center border-b border-insana-purple/40 pb-4">
+                    <h2 class="text-2xl font-black uppercase text-white flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-insana-neon"></span>
+                        Última Publicação do Blog
+                    </h2>
+                    <span class="text-xs text-purple-300 uppercase font-bold">Blog Cultural</span>
+                </div>
+
+                <article class="p-8 rounded-3xl glass-purple border border-insana-purple/60 space-y-4 relative overflow-hidden group">
+                    <span class="text-xs font-black text-insana-neon uppercase tracking-wider">Artigo em Destaque • 2026</span>
+                    <h3 class="text-2xl font-black text-white group-hover:text-insana-neon transition-colors">
+                        O Papel dos Blocos de Rua na Salvaguarda do Samba de Raiz Carioca
+                    </h3>
+                    <p class="text-purple-200/80 text-sm leading-relaxed">
+                        Análise profunda sobre como os coletivos culturais e oficinas comunitárias atuam na preservação da memória musical do Rio de Janeiro, gerando impacto social e formando novas gerações de percussionistas.
+                    </p>
+                    <div class="pt-4 flex justify-between items-center border-t border-insana-purple/40 text-xs text-purple-300">
+                        <span>Publicado por <strong>Equipe Insana RJ</strong></span>
+                        <a href="#" class="font-black text-insana-neon uppercase hover:underline">Ler Artigo Completo &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Janela Última Postagem Instagram @blocodainsanarj -->
+            <div id="redes" class="lg:col-span-5 space-y-6">
+                <div class="flex justify-between items-center border-b border-insana-purple/40 pb-4">
+                    <h2 class="text-2xl font-black uppercase text-white flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-insana-purpleLight"></span>
+                        Último Post do Instagram
+                    </h2>
+                    <span class="text-xs text-insana-neon uppercase font-bold">@blocodainsanarj</span>
+                </div>
+
+                <div class="p-6 rounded-3xl glass-purple border border-insana-purple/60 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-insana-purple border border-insana-neon flex items-center justify-center text-xs font-bold text-white">I</div>
+                            <span class="font-black text-sm text-white">@blocodainsanarj</span>
+                        </div>
+                        <span class="text-[10px] bg-insana-neon/20 text-insana-neon px-2 py-1 rounded font-bold uppercase">Instagram Oficial</span>
+                    </div>
+
+                    <!-- Card Simulado do Post -->
+                    <div class="aspect-square bg-insana-bg border border-insana-purple/50 rounded-2xl flex flex-col items-center justify-center p-6 text-center space-y-3">
+                        <span class="text-4xl">🥁🔥</span>
+                        <p class="text-xs text-purple-200/90 italic">"O couro comeu forte no ensaio de ontem! Mencionem aqui quem já tá com a fantasia pronta pro desfile de 2027! 🎉💜💚"</p>
+                        <span class="text-[10px] text-purple-300/60 font-bold uppercase">#BlocoDaInsana #OficinaInsana #SambaRJ</span>
+                    </div>
+
+                    <a href="https://instagram.com/blocodainsanarj" target="_blank" class="block text-center py-2.5 bg-insana-purple/40 hover:bg-insana-purple text-white text-xs font-black uppercase rounded-xl border border-insana-purpleLight transition-all">
+                        Ver no Instagram @blocodainsanarj &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Portal da Transparência -->
+    <section id="transparencia" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="p-8 sm:p-12 rounded-3xl glass-purple border border-insana-neon/40 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-insana-purple/40 pb-6">
+                <div>
+                    <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Acesso Público</span>
+                    <h2 class="text-3xl font-black uppercase text-white mt-1">Portal da Transparência</h2>
+                </div>
+                <span class="px-4 py-2 rounded-xl bg-insana-neon/10 text-insana-neon font-bold text-xs border border-insana-neon/30">Conformidade com Editais</span>
+            </div>
+            <p class="text-purple-200/80 text-sm max-w-3xl">Relatórios financeiros, relatórios de execução de projetos e documentos de fomentos/editais públicos recebidos pelo coletivo.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-5 rounded-2xl bg-insana-bg border border-insana-purple/50 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Prestação de Contas - Edital Ações Continuadas</h4>
+                        <span class="text-xs text-purple-300/60">Relatório de Execução Física e Financeira • PDF</span>
+                    </div>
+                    <a href="#" class="px-3 py-2 bg-insana-neon text-black text-xs font-black rounded-lg hover:bg-insana-neonHover transition-colors">Baixar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-24 bg-insana-card/40 border-t border-insana-purple/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Fale Conosco</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">Entre em Contato</h2>
+                    <div class="space-y-4 pt-4 text-sm text-purple-200/90">
+                        <div class="flex items-center gap-3"><span class="text-insana-neon font-bold">📧</span> <span id="contact-email">contato@insanarj.com.br</span></div>
+                        <div class="flex items-center gap-3"><span class="text-insana-neon font-bold">📍</span> <span id="contact-location">Rio de Janeiro - RJ, Brasil</span></div>
+                        <div class="flex items-center gap-3"><span class="text-insana-neon font-bold">📷</span> <span id="contact-insta">@blocodainsanarj</span></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleFormSubmit(event)" class="p-8 rounded-3xl glass-purple space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-purple-200 mb-2">Nome Completo</label>
+                            <input type="text" required placeholder="Digite seu nome" class="w-full px-4 py-3.5 rounded-xl bg-insana-bg border border-insana-purple/60 text-white text-sm focus:border-insana-neon focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-purple-200 mb-2">E-mail</label>
+                            <input type="email" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-3.5 rounded-xl bg-insana-bg border border-insana-purple/60 text-white text-sm focus:border-insana-neon focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-purple-200 mb-2">Mensagem</label>
+                            <textarea rows="4" required placeholder="Sua mensagem..." class="w-full px-4 py-3.5 rounded-xl bg-insana-bg border border-insana-purple/60 text-white text-sm focus:border-insana-neon focus:outline-none resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-insana-neon hover:bg-insana-neonHover text-black font-black uppercase text-xs tracking-wider rounded-xl transition-all">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrossel de Parceiros do Coletivo -->
+    <section class="py-16 bg-insana-bg border-t border-insana-purple/30 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
+            <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Parceria & Apoio Cultural</span>
+            <h3 class="text-xl font-black uppercase text-white mt-1">Parceiros do Coletivo</h3>
+        </div>
+
+        <!-- Carrossel Infinito -->
+        <div class="relative w-full overflow-hidden">
+            <div class="animate-carousel flex items-center gap-12">
+                <!-- Logos Parceiros (Grupo 1) -->
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Sebastiana</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🥁 Casa Carnaval</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🌴 Apoio Local RJ</div>
+
+                <!-- Duplicação para Animação Infinita Sem Quebra (Grupo 2) -->
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Sebastiana</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🥁 Casa Carnaval</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🌴 Apoio Local RJ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-insana-purple/30 text-center text-purple-300/60 text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados.</p>
+            <p>Samba, Percussão e Ocupação Cultural no Rio de Janeiro.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts do Contador e Decap CMS -->
+    <script>
+      function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        alert('Mensagem enviada com sucesso!');
+        e.target.reset();
+      }
+
+      // LÓGICA DA CONTAGEM REGRESSIVA PARA O DESFILE (08.02.2027)
+      const paradeDate = new Date('February 8, 2027 10:00:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = paradeDate - now;
+
+        if (distance > 0) {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+          document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+          document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+          document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // CONEXÃO COM DECAP CMS (/content/geral.json)
+      fetch('/content/geral.json')
+        .then(res => res.json())
+        .then(data => {
+          if (data.logo) {
+            document.getElementById('brand-logo-container').innerHTML = `<img src="${data.logo}" alt="Coletivo Insana RJ" class="h-10 w-auto">`;
+          }
+          if (data.slogan) {
+            document.getElementById('hero-slogan').innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-insana-neon animate-pulse"></span> ${data.slogan}`;
+          }
+          if (data.hero_description) {
+            document.getElementById('hero-desc').textContent = data.hero_description;
+          }
+          if (data.email) {
+            document.getElementById('contact-email').textContent = data.email;
+          }
+          if (data.localizacao) {
+            document.getElementById('contact-location').textContent = data.localizacao;
+          }
+          if (data.instagram) {
+            document.getElementById('contact-insta').textContent = data.instagram;
+          }
+        })
+        .catch(() => console.log('Usando valores padrão do HTML.'));
+    </script>
+</body>
+</html>
