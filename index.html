@@ -441,31 +441,40 @@
         </div>
     </section>
 
-    # 9. CARROSSEL DE PARCEIROS
-  - name: "parceiros"
-    label: "9. Parceiros do Coletivo"
-    files:
-      - file: "content/parceiros.json"
-        label: "Lista de Parceiros"
-        name: "parceiros"
-        fields:
-          - label: "Logos dos Parceiros"
-            name: "lista_parceiros"
-            widget: "list"
-            fields:
-              - { label: "Nome do Parceiro", name: "nome", widget: "string" }
-              - { label: "Logo do Parceiro", name: "logo", widget: "image" }
+    <!-- Carrossel de Parceiros do Coletivo -->
+    <section class="py-16 bg-insana-bg border-t border-insana-purple/30 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
+            <span class="text-xs font-black tracking-widest text-insana-neon uppercase">Parceria & Apoio Cultural</span>
+            <h3 class="text-xl font-black uppercase text-white mt-1">Parceiros do Coletivo</h3>
+        </div>
 
-  # 10. RODAPÉ (FOOTER)
-  - name: "rodape"
-    label: "10. Rodapé do Site"
-    files:
-      - file: "content/rodape.json"
-        label: "Textos de Direitos & Informações"
-        name: "rodape"
-        fields:
-          - { label: "Texto de Direitos Autorais", name: "copyright", widget: "string", default: "© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados." }
-          - { label: "Subtítulo do Rodapé", name: "subtitulo", widget: "string", default: "Samba, Percussão e Ocupação Cultural no Rio de Janeiro." }
+        <!-- Carrossel Infinito -->
+        <div class="relative w-full overflow-hidden">
+            <div class="animate-carousel flex items-center gap-12">
+                <!-- Logos Parceiros (Grupo 1) -->
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Sebastiana</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🥁 Casa Carnaval</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🌴 Apoio Local RJ</div>
+
+                <!-- Duplicação para Animação Infinita Sem Quebra (Grupo 2) -->
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🏛️ Sec. de Cultura RJ</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎭 Folia Carioca</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🎺 Sebastiana</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🥁 Casa Carnaval</div>
+                <div class="flex items-center justify-center w-48 h-20 bg-insana-card/60 rounded-2xl border border-insana-purple/40 text-purple-300 font-black text-xs uppercase p-4 text-center shrink-0">🌴 Apoio Local RJ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-insana-purple/30 text-center text-purple-300/60 text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados.</p>
+            <p>Samba, Percussão e Ocupação Cultural no Rio de Janeiro.</p>
+        </div>
+    </footer>
 
     <!-- REDIRECIONAMENTO DE LOGIN NETLIFY IDENTITY -->
     <script>
