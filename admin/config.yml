@@ -201,7 +201,3 @@ collections:
         fields:
           - { label: "Texto de Direitos Autorais", name: "copyright", widget: "string", default: "© 2026 Coletivo Cultural Insana RJ. Todos os direitos reservados." }
           - { label: "Subtítulo do Rodapé", name: "subtitulo", widget: "string", default: "Samba, Percussão e Ocupação Cultural no Rio de Janeiro." }
-      - { label: "Título do Documento", name: "title", widget: "string" }
-      - { label: "Descrição Curta", name: "description", widget: "string" }
-      - { label: "Arquivo PDF", name: "file", widget: "file" }
-      - { label: "Ano de Referência", name: "year", widget: "string" }
